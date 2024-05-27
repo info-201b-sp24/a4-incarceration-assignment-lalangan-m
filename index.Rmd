@@ -7,29 +7,80 @@ Matthew Lalangan (lalangan@uw.edu)
 
 ### Introduction
 
-An introduction of the problem domain and a description of the variable(s) you are choosing to analyze (and why!)
+Understanding the patterns and trends in incarceration is critical for addressing systemic issues within the criminal justice system. This analysis leverages data from the Vera Institute of Justice, which provides comprehensive information on jail and prison populations across counties and states. The goal is to uncover insights into how incarceration rates differ by race and region, and to identify factors contributing to these disparities.
+
+1. Black Jail Population Rate and White Jail Population Rate:
+These variables represent the rate of incarceration in jails for Black and White populations per county. Analyzing these rates is crucial for understanding racial disparities in local incarceration practices. Given historical and systemic biases, Black individuals are often incarcerated at higher rates than their White counterparts. By focusing on these variables, we can identify regions with the most significant disparities and investigate underlying causes.
+
+2. Black Prison Population Rate and White Prison Population Rate:
+These variables represent the rate of incarceration in prisons for Black and White populations per county. Similar to jail population rates, prison population rates highlight racial disparities in longer-term incarceration. Analyzing these rates helps in understanding how systemic issues extend beyond pre-trial detention into longer-term sentencing.
+
+3. Total Jail Population Rate:
+This variable indicates the overall jail population rate per county, regardless of race. It provides a general overview of how different regions use incarceration as a tool for maintaining public safety and managing criminal behavior. By examining total jail population rates, we can identify counties with particularly high or low incarceration rates and explore regional policies and practices contributing to these trends.
+
+4. Urbanicity:
+Urbanicity categorizes counties as urban, suburban, or rural based on population density and urban characteristics. This variable is crucial for understanding how incarceration rates vary across different types of regions. Urban areas often have different challenges and resources compared to rural areas, influencing their incarceration rates and practices. By analyzing this variable, we can compare incarceration trends across diverse environments and identify unique factors affecting each.
 
 ### Summary Information
 
-Write a summary paragraph of findings that includes the 5 values calculated from your summary information R script
+1. Average Jail/Prison Rates in Top 10 States (1990-2020)
+Variables: Black Jail Population Rate, White Jail Population Rate, Black Prison Population Rate, White Prison Population Rate  
+Findings:
+Black Jail Population Rate: Significantly higher than the White Jail Population Rate throughout the years. This indicates systemic racial disparities in the incarceration system.
+White Jail Population Rate: Lower compared to Black Jail Population Rate but shows variability over time.
+Black Prison Population Rate: Consistently higher than the White Prison Population Rate, reflecting similar disparities seen in jail populations.
+White Prison Population Rate: Lower than the Black Prison Population Rate but follows a similar trend over time.
 
-These will likely be calculated using your DPLYR skills, answering questions such as: 
 
-- What is the average value of my variable across all the counties (in the current year)?
-- Where is my variable the highest / lowest?
-- How much has my variable change over the last N years?
+2. Comparison of Jail Population Rates in Urban Areas: Whites vs Blacks
+Variables: Black Jail Population Rate, White Jail Population Rate  
+Findings:
+Positive Correlation: There is a positive correlation between the jail population rates of Black and White individuals in urban areas, indicating that areas with higher White jail population rates also tend to have higher Black jail population rates.
+Racial Disparities: The Black Jail Population Rate is generally higher than the White Jail Population Rate for the same urban areas, pointing to racial disparities in urban incarceration.
 
-Feel free to calculate and report values that you find relevant. Again, remember that the purpose is to think about how these measure of incarceration vary by race.
+
+3. Jail Population Density in WA, OR, and CA
+Variable: Total Jail Population Rate  
+Findings:
+High Density Areas: Certain counties in Washington, California, and Oregon have higher jail population densities, as indicated by the darker colors on the map.
+Regional Disparities: There are notable regional disparities within and between the states, with some counties having significantly higher Total Jail Population Rates.
 
 ### The Dataset
 
 Who collected the data?  
-How was the data collected or generated?  
+
+> The Incarceration Trends dataset was collected and generated by the Vera Institute of Justice. 
+
+How was the data collected or generated?
+
+> The data compilation involved sourcing information from the U.S. Department of Justice Bureau of Justice Statistics (BJS), federal, state, and local agencies, and other researchers and institutions. Key data sources include the Census of Jails (COJ) and the Annual Survey of Jails (ASJ), covering jail populations since 1970 and 1982 respectively. Additionally, the dataset integrates data from the National Corrections Reporting Program (NCRP), which provides detailed state prison population data down to the county level.
+
 Why was the data collected?  
-How many observations (rows) are in your data?  
-How many features (columns) are in the data?  
-What, if any, ethical questions or questions of power do you need to consider when working with this data?  
-What are possible limitations or problems with this data?   (at least 200 words)
+
+> The primary purpose of collecting this data was to explore the use of incarceration at the county level in the United States, allowing for a detailed analysis of local jail and state prison populations.
+
+How many observations (rows) are in your data?
+
+> 153,811 rows
+
+How many features (columns) are in the data?
+
+> 23 columns
+
+What, if any, ethical questions or questions of power do you need to consider when working with this data?
+
+> Privacy and Confidentiality: Ensuring the data does not compromise the privacy of individuals or communities involved.  
+Bias and Representation: Addressing potential biases in data collection and interpretation, especially given historical disparities in the criminal justice system.  
+Impact on Communities: Considering the social and economic impacts of incarceration data on marginalized communities, particularly communities of color disproportionately affected by mass incarceration.  
+Use of Data: Ensuring the data is used ethically, to inform policy and drive positive change, rather than perpetuating existing inequalities.
+
+What are possible limitations or problems with this data? (at least 200 words)
+
+> Incomplete Data: Some states and counties might not provide complete data, leading to gaps that require interpolation or estimation, which can introduce errors.  
+Temporal Gaps: The data spans several decades, and changes in data collection methods over time can affect consistency.  
+Urban-Rural Classification: Collapsing urban-rural classifications into fewer categories might obscure more nuanced differences between regions.  
+Single-Day Counts vs. Average Populations: Differences between single-day counts and average daily populations can lead to discrepancies in understanding the true scope of incarceration rates.  
+Demographic Data: Race and gender classifications in administrative data systems might not accurately reflect the ways people self-identify, leading to potential misrepresentation.
 
 
 ### Trends Over Time Chart
@@ -37,24 +88,18 @@ What are possible limitations or problems with this data?   (at least 200 words)
 ```
 
 
-Make sure to describe why you included the chart, and what patterns emerged
+I included this chart to visualize the trends and disparities in jail and prison population rates for Black and White individuals from 1990 to 2020 in the top 10 states with the highest combined jail and prison population rates. The goal was to highlight racial disparities and observe how these rates have changed over time.The Black Jail Population Rate and Black Prison Population Rate are consistently higher than the White Jail Population Rate and White Prison Population Rate throughout the years. This disparity highlights systemic racial inequalities in the criminal justice system, with Black individuals being incarcerated at higher rates than White individuals.Both Black and White jail and prison population rates show variability over the years, with some periods of increase and others of decrease. Despite these fluctuations, the disparity between Black and White population rates remains evident. Towards the later years (closer to 2020), there may be indications of convergence or divergence in these rates, which can provide insights into the impact of recent policy changes or social movements focused on criminal justice reform.
 
 ### Variable Comparison Chart
 ```{r echo = FALSE, message = FALSE, warning = FALSE, code = readLines("MatthewChart2.R")}
 ```
 
 
-Make sure to describe why you included the chart, and what patterns emerged
+I included this chart to examine the relationship between the jail population rates of White and Black individuals in urban areas. The goal was to identify any correlation between these rates and to highlight potential racial disparities in urban incarceration. The linear regression line indicates a positive correlation between the White jail population rate and the Black jail population rate in urban areas. This suggests that areas with higher White jail population rates also tend to have higher Black jail population rates.Despite the positive correlation, the points are generally distributed such that the Black jail population rates are higher than the White jail population rates for the same urban areas. This indicates a consistent racial disparity where Black individuals are incarcerated at higher rates than White individuals in urban settings. The scatter plot shows variability in the data, with some urban areas having significantly higher or lower rates for both Black and White populations. This variability suggests that local policies and conditions significantly influence incarceration rates.
 
 ### Map
 ```{r echo = FALSE, message = FALSE, warning = FALSE, code = readLines("MatthewChart3.R")}
 ```
 
-Include a chart. Make sure to describe why you included the chart, and what patterns emerged
-
-The last chart that you will create and include will show how a variable is distributed geographically. Again, think carefully about what such a comparison means and what you want to communicate to your user (you may have to find relevant trends in the dataset first!). Here are some requirements to help guide your design:
-
-- Your map needs a title
-- Your color scale needs a legend with a clear label
-- Use a map based coordinate system to set the aspect ratio of your map
-
+I included this chart to provide a visual representation of the jail population density across counties in the states of Washington, California, and Oregon. The goal is to identify regional disparities and highlight areas with particularly high or low jail population rates. The map highlights counties with high jail population densities. These areas are represented by darker shades on the map, indicating a higher total jail population rate. In California, several counties exhibit high jail population densities, particularly in urban areas like Los Angeles County. There are notable differences in jail population rates across counties within each state. Some counties have significantly higher jail population rates than others, reflecting regional disparities in incarceration practices and policies.
+In Washington and Oregon, the map shows variation, with some rural counties having high jail population rates, while other areas have much lower rates. Some counties are shown in grey, indicating missing data. This highlights the need for more comprehensive data collection and reporting to fully understand regional incarceration trends.
